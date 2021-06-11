@@ -1,2 +1,2 @@
-# malbpf
+# bpf
 Research of Malicious eBPF Programs
