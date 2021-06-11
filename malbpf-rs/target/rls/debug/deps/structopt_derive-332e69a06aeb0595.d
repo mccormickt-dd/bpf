@@ -1,0 +1,10 @@
+/Users/tommy.mccormick/futz/bpf/malbpf/target/rls/debug/deps/libstructopt_derive-332e69a06aeb0595.dylib: /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/lib.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/attrs.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/doc_comments.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/parse.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/spanned.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/ty.rs
+
+/Users/tommy.mccormick/futz/bpf/malbpf/target/rls/debug/deps/structopt_derive-332e69a06aeb0595.d: /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/lib.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/attrs.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/doc_comments.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/parse.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/spanned.rs /Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/ty.rs
+
+/Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/lib.rs:
+/Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/attrs.rs:
+/Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/doc_comments.rs:
+/Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/parse.rs:
+/Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/spanned.rs:
+/Users/tommy.mccormick/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.14/src/ty.rs:

@@ -1,0 +1,50 @@
+  MKDIR    staticobjs
+  CC       bpf.o
+  CC       btf.o
+  CC       libbpf.o
+  CC       libbpf_errno.o
+  CC       netlink.o
+  CC       nlattr.o
+  CC       str_error.o
+  CC       libbpf_probes.o
+  CC       bpf_prog_linfo.o
+  CC       xsk.o
+  CC       btf_dump.o
+  CC       hashmap.o
+  CC       ringbuf.o
+  AR       libbpf.a
+  INSTALL  bpf.h libbpf.h btf.h xsk.h libbpf_util.h bpf_helpers.h bpf_helper_defs.h bpf_tracing.h bpf_endian.h bpf_core_read.h libbpf_common.h
+  INSTALL  libbpf.pc
+  INSTALL  libbpf.a
+  CLEAN    
+TARGET = Some("x86_64-unknown-linux-gnu")
+OPT_LEVEL = Some("0")
+HOST = Some("x86_64-unknown-linux-gnu")
+CC_x86_64-unknown-linux-gnu = None
+CC_x86_64_unknown_linux_gnu = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-unknown-linux-gnu = None
+CFLAGS_x86_64_unknown_linux_gnu = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("true")
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-I" "/home/vagrant/.cargo/registry/src/github.com-1ecc6299db9ec823/libbpf-sys-0.3.0-2/libbpf/include" "-I" "/home/vagrant/.cargo/registry/src/github.com-1ecc6299db9ec823/libbpf-sys-0.3.0-2/libbpf/include/uapi" "-Wall" "-Wextra" "-o" "/vagrant/malbpf/target/debug/build/libbpf-sys-7146e4241ce89fa8/out/bindings.o" "-c" "bindings.c"
+exit code: 0
+AR_x86_64-unknown-linux-gnu = None
+AR_x86_64_unknown_linux_gnu = None
+HOST_AR = None
+AR = None
+running: "ar" "cq" "/vagrant/malbpf/target/debug/build/libbpf-sys-7146e4241ce89fa8/out/libbindings.a" "/vagrant/malbpf/target/debug/build/libbpf-sys-7146e4241ce89fa8/out/bindings.o"
+exit code: 0
+running: "ar" "s" "/vagrant/malbpf/target/debug/build/libbpf-sys-7146e4241ce89fa8/out/libbindings.a"
+exit code: 0
+cargo:rustc-link-lib=static=bindings
+cargo:rustc-link-search=native=/vagrant/malbpf/target/debug/build/libbpf-sys-7146e4241ce89fa8/out
+cargo:rustc-link-search=native=/vagrant/malbpf/target/debug/build/libbpf-sys-7146e4241ce89fa8/out
+cargo:rustc-link-lib=elf
+cargo:rustc-link-lib=z
+cargo:rustc-link-lib=static=bpf
+cargo:include=/vagrant/malbpf/target/debug/build/libbpf-sys-7146e4241ce89fa8/out/include
