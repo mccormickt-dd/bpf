@@ -6,11 +6,9 @@
 # SKIP_BCC_BUILD: Set to skip the building bcc from source
 
 $ubuntu_deps = <<EOF
-wget https://apt.llvm.org/llvm.sh
-bash ./llvm.sh 12
 apt-get -qq update
 apt-get -qq install linux-headers-$(uname -r) linux-tools-$(uname -r) linux-tools-generic binutils-dev python
-apt-get -qq install bison cmake flex g++ git libelf-dev zlib1g-dev libfl-dev systemtap-sdt-dev libclang-12-dev
+apt-get -qq install bison cmake flex g++ llvm clang git libelf-dev zlib1g-dev libfl-dev systemtap-sdt-dev libclang-12-dev go-bindata
 apt-get -qq install --no-install-recommends pkg-config
 EOF
 
@@ -40,13 +38,24 @@ make
 sudo PREFIX=/usr/local/ LIBDIR=/usr/local/lib make install install_uapi_headers
 EOF
 
+$build_go = <<EOF
+if [ -e /usr/local/go/bin/go ]; then
+  "go already installed, skipping"
+  exit 0
+fi
+wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
+rm go1.16.5.linux-amd64.tar.gz
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
+/usr/local/go/bin/go get -u github.com/go-bindata/go-bindata/...
+EOF
+
 $build_rust = <<EOF
 if [ -e ~/.cargo/bin/rustup ]; then
   "rust already installed, skipping"
   exit 0
 fi
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- "-y"
-echo "source $HOME/.cargo/env >> ~/.bashrc"
 EOF
 
 Vagrant.configure("2") do |config|
@@ -56,7 +65,8 @@ Vagrant.configure("2") do |config|
       'scripts'        => [ $ubuntu_deps, ],
       'fix_console'    => 0,
     }
-}
+  }
+
   boxes.each do | name, params |
     config.vm.define name do |box|
       box.vm.box = params['image']
@@ -76,6 +86,9 @@ Vagrant.configure("2") do |config|
       end
       unless ENV['SKIP_LIBBPF_BUILD'] || (params['skip_libbpf_build'] == 1)
         box.vm.provision :shell, privileged: false, inline: $build_libbpf
+      end
+      unless ENV['SKIP_GO_BUILD'] || (params['skip_go_build'] == 1)
+        box.vm.provision :shell, privileged: false, inline: $build_go
       end
       unless ENV['SKIP_RUST_BUILD'] || (params['skip_rust_build'] == 1)
         box.vm.provision :shell, privileged: false, inline: $build_rust
